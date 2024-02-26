@@ -1,0 +1,31 @@
+<beans xmln="http://www.springframework.org/schema/beans"
+	xmln:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmln:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context-2.5.xsd">
+
+	<context:annotation-config />
+	<context:component-scan
+		base-package="spring.ejercicios.logs"></context:component-scan>
+
+	<bean id="PersonaMasculino" class="spring.ejercicios.persona" parent="generoMasculino">
+		<property name="nombre" value="David" />
+		<property name="apellido" value="Pantoja" />
+		<property name="dni" value="6548515-C" />
+	</bean>
+		<bean id="PersonaFemenino" class="spring.ejercicios.persona" parent="generoFemenino">
+		<property name="nombre" value="Raquel" />
+		<property name="apellido" value="Cano" />
+		<property name="dni" value="69195155-R" />
+	</bean>
+
+	<bean id="generoFemenino" abstract="true">
+		<property name="genero" value="femenino" />
+	</bean>
+	<bean id="generoMasculino" abstract="true">
+		<property name="genero" value="masculino" />
+	</bean>
+
+</beans>
